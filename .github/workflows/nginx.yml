@@ -1,19 +1,21 @@
-name: Deploy with Nginx
+name: my-deployment
 
 on:
   push:
-    branches:
-      - main
-
+    branches: [ main ]
+    workflow_dispatch: {}
 jobs:
-  deploy:
+  build:
     runs-on: self-hosted
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Deploy Index.html to Nginx
+  deploy:
+    needs: build
+    runs-on: self-hosted+
+    steps:
+      - name: Bala
         run: |
-          sudo cp Index.html /usr/share/nginx/html/Index.html
+          scp -r ./index.html /usr/share/nginx/html/
     
