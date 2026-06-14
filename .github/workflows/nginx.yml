@@ -7,7 +7,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
       - name: Checkout code
@@ -15,5 +15,5 @@ jobs:
 
       - name: Deploy index.html to Nginx
         run: |
-          scp -r ./index.html usr/share/nginx/html/
-
+          sudo cp index.html /usr/share/nginx/html/index.html
+    
