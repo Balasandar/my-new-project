@@ -5,14 +5,14 @@ on:
     branches: [ main ]
 jobs:
   build:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
   deploy:
     needs: build
-    runs-on: ubudu-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Bala
         run: |
