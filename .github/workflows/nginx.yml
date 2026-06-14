@@ -13,7 +13,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Deploy index.html to Nginx
+      - name: Deploy Index.html to Nginx
         run: |
-          sudo cp index.html /usr/share/nginx/html/index.html
+          sudo cp Index.html /usr/share/nginx/html/Index.html
     
