@@ -25,6 +25,6 @@ jobs:
 
       - name: Deploy index.html to Nginx
         run: |
-         sudo cp Index.html /var/www/html/index.html
+         sudo cp index.html /var/www/html/index.html
          sudo systemctl restart nginx
     
