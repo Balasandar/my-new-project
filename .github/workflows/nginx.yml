@@ -3,6 +3,7 @@ name: my-deployment
 on:
   push:
     branches: [ main ]
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -12,9 +13,19 @@ jobs:
 
   deploy:
     needs: build
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
-      - name: Bala
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install Nginx
         run: |
-          scp -r ./index.html /usr/share/nginx/html/
+          sudo apt-get update
+          sudo apt-get install -y nginx
+
+      - name: Deploy index.html to Nginx
+        run: |
+          sudo cp index.html /usr/share/nginx/html/index.html
+          sudo systemctl restart nginx
+          sudo systemctl enable nginx
     
