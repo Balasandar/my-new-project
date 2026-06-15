@@ -25,7 +25,7 @@ jobs:
 
       - name: Deploy index.html to Nginx
         run: |
+          ls -la
           sudo cp index.html /usr/share/nginx/html/index.html
           sudo systemctl restart nginx
-          sudo systemctl enable nginx
     
